@@ -19,7 +19,15 @@ mix
     require("postcss-nested"),
     require("autoprefixer"),
   ])
-  .browserSync("alpine-components.test");
+  .browserSync({
+    proxy: "alpine-components.test",
+    rule: {
+      match: /<\/head>/i,
+      fn: function (snippet, match) {
+        return snippet + match;
+      },
+    },
+  });
 
 if (mix.inProduction()) {
   mix.version();

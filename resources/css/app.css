@@ -3,3 +3,8 @@
 @import "tailwindcss/components";
 
 @import "tailwindcss/utilities";
+
+pre code {
+  position: relative;
+  bottom: 1rem;
+}

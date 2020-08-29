@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ComponentController@index')->name('components.index');
+Route::get('/components/{slug}', 'ComponentController@show')->name('components.show');
+Route::get('/components/{id}/edit', 'ComponentController@edit')->name('components.edit');
+
+Route::get('/categories', 'CategoryController@index')->name('categories.index');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
