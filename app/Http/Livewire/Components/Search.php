@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Components;
 
 use App\Models\Category;
-use Illuminate\Database\Eloquent\Builder;
+use App\Models\Component;
 use Livewire\Component as LivewireComponent;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -31,6 +31,8 @@ class Search extends LivewireComponent
             ->filter(function (Category $category) {
                 return $category->components->isNotEmpty();
             }),
+            'componentsWithoutCategory' => Component::whereNull('category_id')
+                ->get(),
         ]);
     }
 }

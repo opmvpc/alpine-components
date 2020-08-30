@@ -19,10 +19,17 @@ class ComponentController extends Controller
         ]);
     }
 
-    public function edit(string $slug)
+    public function edit(int $id)
     {
         return view('front.components.edit', [
-            'slug' => $slug,
+            'id' => $id,
         ]);
+    }
+
+    public function create()
+    {
+        $component = Component::create();
+
+        return redirect()->route('components.edit', $component->id);
     }
 }

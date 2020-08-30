@@ -16,7 +16,8 @@ class Component extends Model
     protected $fillable = [
         'name',
         'slug',
-        'description'
+        'description',
+        'category_id',
     ];
 
     public function category(): BelongsTo

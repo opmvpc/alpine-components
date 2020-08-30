@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'ComponentController@index')->name('components.index');
+Route::get('/components/create', 'ComponentController@create')->name('components.create');
 Route::get('/components/{slug}', 'ComponentController@show')->name('components.show');
 Route::get('/components/{id}/edit', 'ComponentController@edit')->name('components.edit');
 

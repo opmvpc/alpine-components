@@ -16,9 +16,9 @@ class CreateFilesTable extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->id();
-            $table->string('path');
+            $table->text('content')->nullable();
             $table->enum('extension', [File::JS, File::HTML, File::CSS]);
-            $table->foreignId('component_id')->constrained();
+            $table->foreignId('component_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

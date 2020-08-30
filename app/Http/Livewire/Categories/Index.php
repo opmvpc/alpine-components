@@ -30,6 +30,7 @@ class Index extends Component
 
         Category::create([
             'name' => $this->newCategoryName,
+            'order' => Category::max('order') + 1,
         ]);
     }
 
@@ -61,12 +62,19 @@ class Index extends Component
         Category::find($id)->swapWithNext();
     }
 
+    public function deleteCategory()
+    {
+        Category::find($this->selectedCategoryId)->delete();
+        $this->selectedCategoryId = null;
+        $this->selectedCategoryName = null;
+    }
+
     public function render()
     {
         return view('livewire.categories.index', [
             'categories' => Category::where('name', 'LIKE', '%' . $this->searchQuery . '%')
-            ->orderBy('order')
-            ->get()
+                ->orderBy('order')
+                ->get(),
         ]);
     }
 }

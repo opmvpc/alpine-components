@@ -13,17 +13,12 @@ class File extends Model
     const CSS = 'css';
 
     protected $fillable = [
-        'path',
+        'content',
         'extension',
     ];
 
     public function category(): BelongsTo
     {
         return $this->belongsTo(Component::class);
-    }
-
-    public function getContentAttribute(): string
-    {
-        return Storage::get($this->path);
     }
 }

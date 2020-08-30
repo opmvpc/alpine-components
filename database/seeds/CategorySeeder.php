@@ -31,5 +31,10 @@ class CategorySeeder extends Seeder
             'order' => 4,
             'name' => 'Form',
         ]);
+
+        Category::create([
+            'order' => 4,
+            'name' => 'Images Galery',
+        ]);
     }
 }

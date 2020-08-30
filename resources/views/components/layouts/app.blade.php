@@ -15,7 +15,6 @@
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    @stack('style')
     @livewireStyles
 </head>
 <body class="bg-yellow-100 h-screen antialiased leading-none">
@@ -23,8 +22,7 @@
         {{ $slot }}
     </div>
 
-    @stack('js')
-    @stack('components')
     @livewireScripts
+    @stack('js')
 </body>
 </html>
