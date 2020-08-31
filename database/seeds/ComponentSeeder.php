@@ -60,7 +60,7 @@ EOD,
 
     public function lightBox(): void
     {
-        $introCategory = Category::where('name', 'Directives')->get()->first();
+        $introCategory = Category::where('name', 'Images Galery')->get()->first();
 
         $xIfComponent = $introCategory->components()->create([
             'name' => 'LightBox',
